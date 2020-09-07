@@ -27,6 +27,7 @@ export default class {
     const targetIndex = this._getTargetIndex(name, fn);
     if (targetIndex >= 0) {
       if (this.tasks[targetIndex].fns?.length === 1) {
+        // 仅有一个处理函数时，清除注册对象
         this.tasks = this.tasks.filter((_, index) => index !== targetIndex);
       } else {
         this.tasks[targetIndex].fns = this.tasks[targetIndex].fns!.filter(
@@ -39,6 +40,7 @@ export default class {
   emit(name: string) {
     const targetIndex = this._getTargetIndex(name);
     if (targetIndex >= 0) {
+      // 当找到一个注册对象时，一定有注册函数
       this.tasks[targetIndex].fns!.forEach(fn => {
         fn();
       });
