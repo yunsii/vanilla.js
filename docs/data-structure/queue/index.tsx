@@ -4,7 +4,7 @@ import Queue from './Queue';
 
 export default () => {
   const queueRef = React.useRef(new Queue<string>());
-  const [, setState] = React.useState();
+  const [, setState] = React.useState<any>();
   const [item, setItem] = React.useState('');
 
   const forceRender = () => setState({});
