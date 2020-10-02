@@ -26,7 +26,7 @@ class Queue<T = any> {
   }
 
   clear() {
-    delete this.data;
+    delete (this as any).data;
     this.data = [];
   }
 }
