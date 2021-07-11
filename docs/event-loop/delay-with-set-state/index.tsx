@@ -1,7 +1,7 @@
 import * as React from 'react';
 
 function delay(wait: number = 1) {
-  return new Promise(res => {
+  return new Promise<void>(res => {
     setTimeout(() => {
       res();
     }, wait * 1000);
